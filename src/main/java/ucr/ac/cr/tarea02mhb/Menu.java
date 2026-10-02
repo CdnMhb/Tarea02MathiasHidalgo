@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  * @author mathi
  */
 public class Menu {
-    private SistemaPrestamo sistema;
+private SistemaPrestamo sistema;
 
     public Menu() {
         sistema= new SistemaPrestamo();
@@ -29,15 +29,25 @@ public class Menu {
                     + "Digite una opción:"));
             switch (opcion) {
                 case 1:
-                    
+                    JOptionPane.showMessageDialog(null, sistema.obtenerCatalogo());
+                    break;
                 case 2:
-                    
+                    int posPrestar = Integer.parseInt(JOptionPane.showInputDialog(
+                            sistema.obtenerCatalogo() + "\nDigite la posición a prestar:"));
+                    JOptionPane.showMessageDialog(null, sistema.prestarEquipo(posPrestar));
+                    break;
                 case 3:
-                    
+                    int posDevolver = Integer.parseInt(JOptionPane.showInputDialog(
+                            sistema.obtenerCatalogo() + "\nDigite la posición a devolver:"));
+                    int dias = Integer.parseInt(JOptionPane.showInputDialog("Digite los días de atraso:"));
+                    JOptionPane.showMessageDialog(null, sistema.devolverEquipo(posDevolver, dias));
+                    break;
                 case 4:
-                    
+                    JOptionPane.showMessageDialog(null, sistema.obtenerMultas());
+                    break;
                 case 5:
-                    
+                    JOptionPane.showMessageDialog(null, sistema.obtenerResumen());
+                    break;
                 case 6:
                     JOptionPane.showMessageDialog(null, "Gracias por usar el sistema.");
                     break;
